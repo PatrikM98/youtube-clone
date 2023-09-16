@@ -46,7 +46,7 @@ export async function uploadProcessedVideo(fileName: string) {
 
     console.log(`${localProcessedVideoPath}/${fileName} uploaded to gs://${processedVideoBucketName}/${fileName}.`);
 
-    await bucket.file(fileName).makePublic();
+    await bucket.file(fileName).makePublic(); // because the bucket in GC is "Subject to object ACLs"
 }
 
 export function deleteRawVideo(fileName: string) {
